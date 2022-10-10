@@ -1,6 +1,6 @@
 {
   "name": "setupEventPost2Buffer.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BufferにKanazawa.jsのイベント告知を自動で登録します。",
   "main": "main.js",
   "scripts": {

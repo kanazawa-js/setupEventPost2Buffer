@@ -5,12 +5,13 @@ puppeteerを利用してBufferにKanazawa.jsのイベント告知を登録する
 ## 使う前の設定
 
 1. config.json内の値を編集します。
-  - event_mounth : イベント開催日の指定。yyyy-mmで都度、指定します。
-  - connpass_event_id : 新たに作成したconnpassイベントページのIDを都度、指定します。
-  - numbering : 第XX回の数字を都度、指定します。
-  - title : イベント名に変更がある場合は指定します（例: "わいわい開発&LT", "モブプロでNext.jsハンズオン"）
-  - message : イベント内容軽く補足する内容です。変更がある場合は指定します。（例: "SlackとGatherを利用したリモート開催です。", "今回はオフラインでの開催です。"）
-  - prefix_message : 編集開催日程に応じて接頭詞にされる文字列です。これは編集しません。
+  a. event_mounth : イベント開催日の指定。yyyy-mmで都度、指定します。
+  b. connpass_event_id : 新たに作成したconnpassイベントページのIDを都度、指定します。
+  c. numbering : 第XX回の数字を都度、指定します。
+  d. title : イベント名に変更がある場合は指定します（例: "わいわい開発&LT", "モブプロでNext.jsハンズオン"）
+  e. message : イベント内容軽く補足する内容です。変更がある場合は指定します。（例: "SlackとGatherを利用したリモート開催です。", "今回はオフラインでの開催です。"）
+  f. prefix_message : 編集開催日程に応じて接頭詞にされる文字列です。これは編集しません。
+  g.  buffer_fleeplan_limit_post: Bufferの無料プランでは8件までしか登録できないため制限値としてconfigにも記載。これも編集しません。
 2. `.env.example` を `.env` にリネームして、kzjsのBufferアカウントID/PASSを環境変数として指定します
 
 ## 使い方
