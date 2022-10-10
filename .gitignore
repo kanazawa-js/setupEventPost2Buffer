@@ -1,5 +1,6 @@
 # project
-img/*
+img/
+.vscode
 
 # Mac files
 .DS_Store

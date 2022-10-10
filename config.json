@@ -1,0 +1,16 @@
+{
+  "event_mounth": "2022-10",
+  "connpass_event_id": "261474",
+  "numbering": "24",
+  "title": "わいわい開発&LT",
+  "message": "SlackとGatherを利用したリモート開催です。",
+  "prefix_message": [
+    "本日、",
+    "いよいよ明日、",
+    "1週間後の",
+    "2週間後の",
+    "3週間後の",
+    "4週間後の"
+  ],
+  "buffer_fleeplan_limit_post": 8
+}
