@@ -2,6 +2,10 @@
 
 puppeteerを利用してBufferにKanazawa.jsのイベント告知を登録するScriptです。
 
+## DEMO
+
+![sample](./sample.gif)
+
 ## 使う前の設定
 
 1. config.json内の値を編集します。
