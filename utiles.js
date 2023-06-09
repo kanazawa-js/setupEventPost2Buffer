@@ -143,7 +143,7 @@ const getPromotionMessage = (index, configPrefixMessage) => {
     // NOTE: 表示を整えるためにイベント日を"yyyy年MM月dd日（曜）"形式に変換
     const eventnDay_ja = format(eventnDay, "yyyy/MM/dd(EE)", { locale: ja });
     // NOTE: 各設定値を結合して告知文を作成
-    const promotionMessage = `${prefixMessage}${eventnDay_ja}にKanazawa.js ${config.numbering}th「${config.title}」会を行います👋\n${config.message}詳細はイベントページをご確認ください👇 #kzjs\nhttps://kanazawajs.connpass.com/event/${config.connpass_event_id}`;
+    const promotionMessage = `${prefixMessage}${eventnDay_ja}にKanazawa.js ${config.numbering}th「${config.title}」会を行います👋\n${config.message}詳細はイベントページをご確認ください👇 #kzjs \nhttps://kanazawajs.connpass.com/event/${config.connpass_event_id}`;
     return promotionMessage;
   } catch (error) {
     throw new Error(error);
