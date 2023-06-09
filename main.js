@@ -49,17 +49,22 @@ checkOverPostLimit(promotionDay.length, config.buffer_fleeplan_limit_post);
   await page.waitForSelector("#login-form #password");
   await page.type("#login-form #password", process.env.BUFFER_USER_PASSWORD);
 
-  // NOTE: ログインボタンをクリック
-  await page.evaluate(() => {
-    document.getElementById("login-form-submit").click();
-  });
+  // ログインボタンをクリック
+  await Promise.all([
+    page.waitForNavigation({ waitUntil: "networkidle0" }),
+    page.evaluate(() => document.getElementById("login-form-submit").click()),
+  ]);
   console.log(`INFO: ログインしました`);
   // ----------------------------------------------------------------
 
-  // NOTE: ポップアップされる広告枠を削除
-  await page.waitForSelector("#start-trial-modal");
-  await page.keyboard.press("Escape");
+  // ポップアップされる広告枠がある場合のみ削除する
+  const adElement = await page.$("#start-trial-modal");
+  if (adElement !== null) {
+    await page.keyboard.press("Escape");
+  }
 
+  // 移動前に十分な待ち時間を設ける
+  await page.waitForTimeout(3000); // 3秒待つ
   // NOTE: 月表示での設定画面にページ遷移
   await page.goto("https://publish.buffer.com/calendar/month");
   // ----------------------------------------------------------------
@@ -78,14 +83,14 @@ checkOverPostLimit(promotionDay.length, config.buffer_fleeplan_limit_post);
       );
 
       // NOTE: 告知文章のモーダルが出るまで待機
-      await page.waitForSelector('[class^="App__appWrapper"]');
+      await page.waitForSelector('[id="composer-root"]');
 
       // NOTE: 告知文章のモーダル内包の入力エリアをクリック
-      await page.waitForSelector('section [class^="DraftEditor-root"]');
-      await page.click('section [class^="DraftEditor-root"]');
+      await page.waitForSelector('[data-testid="composer-text-area"]');
+      await page.click('[data-testid="composer-text-area"]');
       // 告知内容を入力する
       await page.type(
-        'section [class^="DraftEditor-root"]',
+        '[data-testid="composer-text-area"]',
         getPromotionMessage(i, config.prefix_message)
       );
 
